@@ -1,9 +1,9 @@
 ###Problem 2 - (Backend)
 
 
-Problem:
+####Problem:
 
-	Customers often have complaints which call the customer service representatives and talk to. The CSR then logs the information by 	choosing the available areas to which the issue is related to, into the system. This record is called as a ticket. A ticket has the below details:
+	Customers often have complaints which call the customer service representatives and talk to. The CSR then logs the information by choosing the available areas to which the issue is related to, into the system. This record is called as a ticket. A ticket has the below details:
 
 		1. Customer Information
 
@@ -35,7 +35,7 @@ Problem:
 
 	Feel free to implement any improvement you see fit for this application.
 	
-##Solution
+####Solution
 
 	$ cd backend
 	$ virtualenv env
