@@ -3,7 +3,7 @@
 
 Problem:
 
-	Customers often have complaints which call the customer service 	representatives and talk to. The CSR then logs the information by 	choosing the available areas to which the issue is related to, into 	the system. This record is called as a ticket. A ticket has the below details:
+	Customers often have complaints which call the customer service representatives and talk to. The CSR then logs the information by 	choosing the available areas to which the issue is related to, into the system. This record is called as a ticket. A ticket has the below details:
 
 		1. Customer Information
 
@@ -34,3 +34,11 @@ Problem:
 		7. Has to work with REST Services in the backend.
 
 	Feel free to implement any improvement you see fit for this application.
+	
+##Solution
+
+	$ cd backend
+	$ virtualenv env
+	$ . env/bin/activate
+	$ pip install flask
+	$ pip freeze > requirements.txt
