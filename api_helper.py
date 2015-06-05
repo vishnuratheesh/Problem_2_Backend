@@ -4,7 +4,7 @@ from db_helper import getDBConnection, pgQuery, pgFetchOne,pgFetchAll
 import arrow
 import logging
 
-def getAllTickets():
+def getAllTicketDetails():
   conn = getDBConnection()
   #cur = conn.cursor()
   cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)

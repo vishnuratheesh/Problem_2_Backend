@@ -7,7 +7,7 @@ def hello_world():
 
 @app.route('/tickets',methods=['GET'])
 def getAllTickets():
-  recs = getUserInfoFor(g.user_id)
+  recs = getAllTicketDetails(g.user_id)
   if recs:
     return jsonify(data=recs)
   else:
