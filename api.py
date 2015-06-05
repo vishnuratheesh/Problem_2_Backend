@@ -1,4 +1,6 @@
 from flask import Flask
+from api_helper import *
+
 app = Flask(__name__)
 
 @app.route('/')
