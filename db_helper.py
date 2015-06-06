@@ -8,7 +8,7 @@ import urlparse
 def getDBConnection ():
   print 'inside getDBConnection'
   urlparse.uses_netloc.append('postgres')
-  print os.environ["DATABASE_URL"]
+  #print os.environ["DATABASE_URL"]
   url = urlparse.urlparse(os.environ["DATABASE_URL"])
   print 'here'
   try:
@@ -43,7 +43,7 @@ def pgFetchOne(query,data):
     cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
     #print cur.mogrify(query,data)
     cur.execute(query,data)
-    rec = cur.fetchone()
+    rec = cur.fetchall()
     conn.commit()
     cur.close()
     conn.close()
