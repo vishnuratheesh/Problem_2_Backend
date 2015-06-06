@@ -13,7 +13,7 @@ def getAllTicketDetails():
   print 'got cursor'
   cur.execute("select * from tickets")
   print 'command executed'
-  results = cur.fetchone()
+  results = cur.fetchall()
   cur.close()
   conn.close()
   if results:

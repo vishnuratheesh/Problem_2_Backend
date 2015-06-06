@@ -43,7 +43,7 @@ def pgFetchOne(query,data):
     cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
     #print cur.mogrify(query,data)
     cur.execute(query,data)
-    rec = cur.fetchall()
+    rec = cur.fetchone()
     conn.commit()
     cur.close()
     conn.close()
