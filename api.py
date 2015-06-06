@@ -4,12 +4,13 @@ from flask.ext.cors import CORS
 from api_helper import *
 
 app = Flask(__name__)
-cors = CORS(app)
+
 
 # One of the simplest configurations. Exposes all resources matching /api/* to
 # CORS and allows the Content-Type header, which is necessary to POST JSON
 # cross origin.
-CORS(app, resources=r'/api/*', allow_headers='Content-Type')
+app.config['CORS_HEADERS'] = 'Content-Type'
+cors = CORS(app)
 
 
 
