@@ -7,9 +7,11 @@ import logging
 def getAllTicketDetails():
   print 'inside getAllTicketDetails'
   conn = getDBConnection()
-  #cur = conn.cursor()
+  print 'got connection'
   cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
-  cur.execute('select * from tickets')
+  print 'got connection'
+  cur.execute("select * from tickets")
+  print 'command executed'
   results = cur.fetchone()
   cur.close()
   conn.close()
