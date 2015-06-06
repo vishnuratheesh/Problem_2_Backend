@@ -6,8 +6,11 @@ import urlparse
 #from config.appconfig import *
 
 def getDBConnection ():
+  print 'inside getDBConnection'
   urlparse.uses_netloc.append('postgres')
-  url = urlparse.urlparse(DATABASE_URL)
+  print os.environ["DATABASE_URL"]
+  url = urlparse.urlparse(os.environ["DATABASE_URL"])
+  print 'here'
   try:
     return psycopg2.connect(
     database=url.path[1:],

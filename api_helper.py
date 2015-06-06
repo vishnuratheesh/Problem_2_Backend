@@ -5,6 +5,7 @@ import arrow
 import logging
 
 def getAllTicketDetails():
+  print 'inside getAllTicketDetails'
   conn = getDBConnection()
   #cur = conn.cursor()
   cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
