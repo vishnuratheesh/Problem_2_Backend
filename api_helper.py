@@ -9,7 +9,7 @@ def getAllTicketDetails():
   print 'inside getAllTicketDetails'
   conn = getDBConnection()
   print 'got connection'
-  cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+  cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
   print 'got cursor'
   cur.execute("select * from tickets")
   print 'command executed'
