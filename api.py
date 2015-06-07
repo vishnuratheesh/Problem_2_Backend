@@ -52,6 +52,68 @@ def createNewTicket():
   else:
     return jsonify(status='Unsupported Content-Type'), 404
 
+
+@app.route('/v1/tickets/',methods=['PUT'])
+def updateOneTicket():
+  print 'inside updateOneTicket - PUT'
+  #print request
+  if request.headers['Content-Type'] == 'application/json':
+    print "JSON Message: " + json.dumps(request.json)
+    data = request.get_json(force=True)
+    print data
+    print data['id']
+    print data['cust_id']
+    print data['prob_id']
+    print data['status_id']
+    print data['comments']
+    print data['assigned_to']
+
+    ticketID = data['id']
+    cust_id = data['cust_id']
+    prob_id =  data['prob_id']
+    status_id = data['status_id']
+    comments = data['comments']
+    assigned_to = data['assigned_to']
+     
+    updateTicket(ticketID,cust_id,prob_id,status_id,comments,assigned_to)
+
+    return jsonify(status='Ticket Updated'), 200
+  else:
+    return jsonify(status='Unsupported Content-Type'), 404
+
+#curl -H "Content-type: aplication/json" -X PUT http://127.0.0.1:5000/v1/tickets/ -d '{"id":1, "cust_id": 1, "prob_id": 1, "status_id": 1, "comments": "AAAAAAA", "assigned_to": 1}'
+
+
+@app.route('/v1/csrs',methods=['GET'])
+def getAllCSRs():
+  print 'inside getAllCSRs - GET'
+  recs = getAllCSRDetails()
+  if recs:
+    return jsonify(data=recs)
+  else:
+    return page_not_found('No CSRs Found')
+
+
+@app.route('/v1/status',methods=['GET'])
+def getAllStatus():
+  print 'inside getAllStatus - GET'
+  recs = getAllStatusDetails()
+  if recs:
+    return jsonify(data=recs)
+  else:
+    return page_not_found('No CSRs Found')
+
+
+@app.route('/v1/customers',methods=['GET'])
+def getAllCustomers():
+  print 'inside getAllCustomers - GET'
+  recs = getAllCustomerDetails()
+  if recs:
+    return jsonify(data=recs)
+  else:
+    return page_not_found('No Customers Found')
+
+
 #--- Error Code 
 @app.errorhandler(404)
 def page_not_found(error):
