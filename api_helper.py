@@ -11,7 +11,7 @@ def getAllTicketDetails():
   print 'got connection'
   cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
   print 'got cursor'
-  cur.execute("select T.id, T.cust_id, C.name, C.mobile, T.prob_id, P.problem_type, T.status_id, S.status, T.comments, T.assigned_to from tickets T, customers C, problem_types P, status S where  T.cust_id = C.id and T.prob_id = P.id and T.status_id = S.id")
+  cur.execute("select T.id, T.cust_id, C.name, C.mobile, T.prob_id, P.problem_type, T.status_id, S.status, T.comments, T.assigned_to, H.name as csr_name, H.level from tickets T, customers C, problem_types P, status S, csr H where  T.cust_id = C.id and T.prob_id = P.id and T.status_id = S.id and T.assigned_to = H.id")
   print 'command executed'
   results = cur.fetchall()
   cur.close()
