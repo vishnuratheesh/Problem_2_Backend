@@ -97,3 +97,19 @@ def getAllCustomerDetails():
     return results
   else:
     return None
+
+def getAllProbTypes():
+  print 'inside getAllProbTypes'
+  conn = getDBConnection()
+  print 'got connection'
+  cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+  print 'got cursor'
+  cur.execute("select *from problem_types")
+  print 'command executed'
+  results = cur.fetchall()
+  cur.close()
+  conn.close()
+  if results:
+    return results
+  else:
+    return None

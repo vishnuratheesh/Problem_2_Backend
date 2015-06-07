@@ -113,6 +113,15 @@ def getAllCustomers():
   else:
     return page_not_found('No Customers Found')
 
+@app.route('/v1/probtypes',methods=['GET'])
+def getAllProblems():
+  print 'inside getAllProblems - GET'
+  recs = getAllProbTypes()
+  if recs:
+    return jsonify(data=recs)
+  else:
+    return page_not_found('No Problem Types Found')
+
 
 #--- Error Code 
 @app.errorhandler(404)
