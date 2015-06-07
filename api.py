@@ -32,25 +32,25 @@ def getAllTickets():
 def createNewTicket():
   print 'inside createNewTicket - POST'
   #print request
-  if request.headers['Content-Type'] == 'application/json':
-    print "JSON Message: " + json.dumps(request.json)
-    data = request.get_json(force=True)
-    print data
-    print data['cust_id']
-    print data['prob_id']
-    print data['status_id']
-    print data['comments']
+  #if request.headers['Content-Type'] == 'application/json':
+  print "JSON Message: " + json.dumps(request.json)
+  data = request.get_json(force=True)
+  print data
+  print data['cust_id']
+  print data['prob_id']
+  print data['status_id']
+  print data['comments']
 
-    cust_id = data['cust_id']
-    prob_id =  data['prob_id']
-    status_id = data['status_id']
-    comments = data['comments']
-     
-    createTicket(cust_id,prob_id,status_id,comments)
+  cust_id = data['cust_id']
+  prob_id =  data['prob_id']
+  status_id = data['status_id']
+  comments = data['comments']
+   
+  createTicket(cust_id,prob_id,status_id,comments)
 
-    return jsonify(status='New Ticket Created'), 200
-  else:
-    return jsonify(status='Unsupported Content-Type'), 404
+  return jsonify(status='New Ticket Created'), 200
+  # else:
+  #   return jsonify(status='Unsupported Content-Type'), 404
 
 
 @app.route('/v1/tickets/',methods=['PUT'])
