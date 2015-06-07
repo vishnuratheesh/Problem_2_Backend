@@ -38,15 +38,16 @@ def createNewTicket():
   print data
   print data['cust_id']
   print data['prob_id']
-  print data['status_id']
   print data['comments']
+  print data['assigned_to']
 
   cust_id = data['cust_id']
   prob_id =  data['prob_id']
   status_id = data['status_id']
   comments = data['comments']
+  assigned_to = data['assigned_to']
    
-  createTicket(cust_id,prob_id,status_id,comments)
+  createTicket(cust_id,prob_id,status_id,comments,assigned_to)
 
   return jsonify(status='New Ticket Created'), 200
   # else:

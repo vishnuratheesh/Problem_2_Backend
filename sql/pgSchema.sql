@@ -41,7 +41,7 @@ CREATE TABLE "tickets" (
 
 
 -- Inserts for CSR table
-insert into csr(name,level) values('Daniel', 'S');
+insert into csr(name,level) values('None', 'Unassigned');
 insert into csr(name,level) values('Adam', 'L1');
 insert into csr(name,level) values('Tom', 'L2');
 insert into csr(name,level) values('Harry', 'L3');

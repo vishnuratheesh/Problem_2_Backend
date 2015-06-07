@@ -22,11 +22,11 @@ def getAllTicketDetails():
     return None
 
 
-def createTicket(cust_id,prob_id,status_id,comments):
+def createTicket(cust_id,prob_id,status_id,comments,assigned_to):
   print 'inside createTicket'
-  query = "INSERT INTO tickets (cust_id,prob_id,status_id,comments) values (%s, %s, %s, %s)"
+  query = "INSERT INTO tickets (cust_id,prob_id,status_id,comments,assigned_to) values (%s, %s, %s, %s, %s)"
   print "query: " + query
-  data = (cust_id,prob_id,status_id,comments,)
+  data = (cust_id,prob_id,status_id,comments,assigned_to)
   res = pgQuery(query,data)
 
   if res:
