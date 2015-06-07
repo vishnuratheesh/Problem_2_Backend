@@ -35,7 +35,7 @@ def createTicket(cust_id,prob_id,status_id,comments):
     return None
 
 def updateTicket(ticketID,cust_id,prob_id,status_id,comments,assigned_to):
-  print 'inside createTicket'
+  print 'inside updateTicket'
   query = "UPDATE tickets set cust_id=%s,prob_id=%s,status_id=%s,comments=%s, assigned_to=%s where id=%s"
   print "query: " + query
   data = (cust_id,prob_id,status_id,comments,assigned_to,ticketID)
