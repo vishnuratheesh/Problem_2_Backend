@@ -57,29 +57,29 @@ def createNewTicket():
 def updateOneTicket():
   print 'inside updateOneTicket - PUT'
   #print request
-  if request.headers['Content-Type'] == 'application/json':
-    print "JSON Message: " + json.dumps(request.json)
-    data = request.get_json(force=True)
-    print data
-    print data['id']
-    print data['cust_id']
-    print data['prob_id']
-    print data['status_id']
-    print data['comments']
-    print data['assigned_to']
+  #if request.headers['Content-Type'] == 'application/json':
+  print "JSON Message: " + json.dumps(request.json)
+  data = request.get_json(force=True)
+  print data
+  print data['id']
+  print data['cust_id']
+  print data['prob_id']
+  print data['status_id']
+  print data['comments']
+  print data['assigned_to']
 
-    ticketID = data['id']
-    cust_id = data['cust_id']
-    prob_id =  data['prob_id']
-    status_id = data['status_id']
-    comments = data['comments']
-    assigned_to = data['assigned_to']
-     
-    updateTicket(ticketID,cust_id,prob_id,status_id,comments,assigned_to)
+  ticketID = data['id']
+  cust_id = data['cust_id']
+  prob_id =  data['prob_id']
+  status_id = data['status_id']
+  comments = data['comments']
+  assigned_to = data['assigned_to']
+   
+  updateTicket(ticketID,cust_id,prob_id,status_id,comments,assigned_to)
 
-    return jsonify(status='Ticket Updated'), 200
-  else:
-    return jsonify(status='Unsupported Content-Type'), 404
+  return jsonify(status='Ticket Updated'), 200
+  #else:
+    #return jsonify(status='Unsupported Content-Type'), 404
 
 #curl -H "Content-type: aplication/json" -X PUT http://127.0.0.1:5000/v1/tickets/ -d '{"id":1, "cust_id": 1, "prob_id": 1, "status_id": 1, "comments": "AAAAAAA", "assigned_to": 1}'
 
